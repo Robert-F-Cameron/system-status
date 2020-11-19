@@ -6,6 +6,9 @@ class FlyingSchedule extends React.Component{
         this.state = {
         }
     }
+    render (){
+        return (<div></div>)
+    }
 }
 
 export default FlyingSchedule;
