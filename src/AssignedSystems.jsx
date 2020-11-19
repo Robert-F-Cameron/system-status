@@ -6,12 +6,18 @@ class AssignedSystems extends React.Compoent{
     constructor(props){
         super(props);
         this.state = {
-
+            systems: []
         }
+    }
+    async querySystems (){
+        const response = await fetch(`https://loaclhost:3004/systems`)
+        const json = await response.json()
+        this.setState({systems: json})
     }
     render(){
         return(
-            <div></div>
+            <System 
+                id={this.state.systemId}/>
         );
     }
 }
