@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import System from './System'
 import Form from './Form'
 import RenderSystems from './AllSystems'
 require('bootstrap')
@@ -25,14 +24,14 @@ class App extends React.Component {
   }
   async componentDidMount(){
     //Loading all the Aircraft
-    const systems = await fetch(`http://localhost:3004/systems`)
+    const systems = await fetch(`http://localhost:8082/systems`)
     const systemsJson = await systems.json()
     this.setState({
       systemDetails: systemsJson,
       loading: false
     })
     //Loading all the workcenters
-    const workcenters = await fetch(`http://localhost:3004/workcenters`)
+    const workcenters = await fetch(`http://localhost:8082/workcenters`)
     const workcentersJson = await workcenters.json()
     this.setState({
       workcenters: workcentersJson
@@ -64,7 +63,7 @@ class App extends React.Component {
         last_fly_date: this.state.last_fly_date,
         operational_status: this.state.operational_status, 
     }
-    await fetch('http://localhost:3004/system',
+    await fetch('http://localhost:8082/system',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -75,7 +74,7 @@ class App extends React.Component {
     .then (this.updateSystems)
   }
   updateSystems = async() =>{
-    const systems = await fetch(`http://localhost:3004/systems`)
+    const systems = await fetch(`http://localhost:8082/systems`)
     const systemsJson = await systems.json()      
     this.setState({
     systemDetails: systemsJson,

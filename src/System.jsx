@@ -1,11 +1,10 @@
 import React from 'react'
-import FlyingSchedule from './FlyingSchedule'
-import Maintenance from './Maintenance'
+
 
 
 function System (props) {
-    let system = props.currentSystem
-    console.log(system)
+    let system = props.system
+
     return (
             <div>
             {system.aircraft_id}<br/>

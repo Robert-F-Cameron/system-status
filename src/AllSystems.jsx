@@ -1,6 +1,7 @@
 import React from 'react'
 import System from './System'
-
+import FlyingSchedule from './FlyingSchedule'
+import Maintenance from './Maintenance'
 
 function  RenderSystems(props) {
     return props.systemDetails.map(system => {
@@ -41,29 +42,13 @@ function  RenderSystems(props) {
                         </button>
                     </div>
                     <div class="modal-body text-dark">
-                    <table class="table">
-                      <tbody>
-                        <tr>
-                          <td>Aircraft ID:</td>
-                          <td>{system.aircraft_id}</td>
-                          <td>Aircraft Model:</td>
-                          <td>{system.aircraft_model}</td>
-                        </tr>
-                        <tr>
-                          <td>Last Flown On:</td>
-                          <td>{system.last_fly_date}</td>
-                        </tr>
-                        <tr>
-                          <td>Flight Hours:</td>
-                          <td >{system.flight_hours}</td>
-                        </tr>
-                        <tr>
-                          <td>Assigned to:</td>
-                          <td>{system.work_center_id}</td>
-                          <td/>
-                        </tr>
-                      </tbody>
-                    </table>
+                   <System system = {system}/>
+                   <h5>Flying Schedule</h5>
+                   <FlyingSchedule system={system} />
+                   <br/>
+                   <h5>Maintenance Schedule</h5>
+                   <Maintenance system={system} />
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
